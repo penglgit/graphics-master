@@ -6,6 +6,7 @@ using namespace std;
 
 void SendDataToOpenGL()
 {
+	/*
 	GLfloat verts[] = 
 	{
 		0.0f, 0.0f,
@@ -21,7 +22,35 @@ void SendDataToOpenGL()
 		0.0f, 1.0f, 0.0f,
 
 		1.0f, -1.0f,
-		0.0f, 0.0f, 1.0f,
+		0.0f, 0.0f, 1.0f,		
+	};
+	*/
+
+	GLfloat verts[] = 
+	{
+		+0.5f, +0.5f, +0.5f,// v0
+		+1.0f, +1.0f, +1.0f,// color
+
+		-0.5f, +0.5f, +0.5f,// v1
+		+1.0f, +0.0f, +1.0f,
+
+		-0.5f, -0.5f, +0.5f,// v2
+		+1.0f, +0.0f, +0.0f,
+
+		+0.5f, -0.5f, +0.5f,// v3
+		+1.0f, +1.0f, +0.0f,
+
+		+0.5f, -0.5f, -0.5f,// v4
+		+0.0f, +1.0f, +0.0f,
+
+		+0.5f, +0.5f, -0.5f,// v5
+		+0.0f, +1.0f, +1.0f,
+
+		-0.5f, +0.5f, -0.5f,// v6
+		+0.0f, +0.0f, +1.0f,
+
+		-0.5f, -0.5f, -0.5f,// v7	
+		+0.0f, +0.0f, +0.0f,
 	};
 
 	GLuint vertexBufferID;
@@ -30,11 +59,30 @@ void SendDataToOpenGL()
 	glBufferData(GL_ARRAY_BUFFER, sizeof(verts), 
 		verts, GL_STATIC_DRAW);
 	glEnableVertexAttribArray(0);
-	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 5, 0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(float) * 6, 0);
 	glEnableVertexAttribArray(1);
-	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(float) * 5, (char *)(sizeof(float) * 2));
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(float) * 6, (char *)(sizeof(float) * 3));
 
-	GLushort indices[] = { 0,1,2, 0,3,4 };
+	// front, right, up, left, down, back
+	GLushort indices[] = {
+		0, 1, 2, 
+		0, 2, 3,
+
+		0, 3, 4,
+		0, 4, 5,
+
+		0, 5, 6,
+		0, 6, 1,
+
+		1, 6, 7,
+		1, 7, 2,
+
+		7, 4, 3,
+		7, 3, 2,
+
+		4, 7, 6,
+		4, 6, 5,	
+	};
 	GLuint indexBufferID;
 	glGenBuffers(1, &indexBufferID);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBufferID);
@@ -122,6 +170,7 @@ void InstallShaders()
 void MeGlWindow::initializeGL()
 {
 	glewInit();
+	glEnable(GL_DEPTH_TEST);
 
 	SendDataToOpenGL();
 	InstallShaders();
@@ -131,14 +180,14 @@ void MeGlWindow::paintGL()
 {
 	glViewport(0, 0, width(), height());
 	// set clear color
-	//glClearColor(1, 0, 0, 0);
+	glClearColor(0, 0, 0, 1);
 
 	// clear, clear color buffer
-	//glClear(GL_COLOR_BUFFER_BIT);	
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);	
 
 	// draw point
 	//glPointSize(50);	
 	//glDrawArrays(GL_POINTS, 0, 1);
 	//glDrawArrays(GL_TRIANGLES, 0, 6);
-	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_SHORT, 0);
+	glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_SHORT, 0);
 }
