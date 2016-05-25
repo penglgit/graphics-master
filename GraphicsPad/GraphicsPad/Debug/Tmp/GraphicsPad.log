@@ -1,0 +1,14 @@
+﻿生成启动时间为 2016/5/25 PM 16:54:38。
+     1>项目“D:\Graphics\GraphicsPad\GraphicsPad\GraphicsPad.vcxproj”在节点 2 上(Build 个目标)。
+     1>ClCompile:
+         D:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ID:\Graphics\GraphicsPad\GraphicsPad\..\ /ID:\Graphics\GraphicsPad\GraphicsPad\..\..\Middleware\Qt\include /ID:\Graphics\GraphicsPad\GraphicsPad\..\..\Middleware\glew\include /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\Tmp\\" /Fd"Debug\Tmp\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt MeGlWindow.cpp
+         MeGlWindow.cpp
+       Link:
+         D:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Graphics\GraphicsPad\Debug\GraphicsPad.exe" /INCREMENTAL /NOLOGO /LIBPATH:D:\Graphics\GraphicsPad\GraphicsPad\..\..\Middleware\Qt\lib /LIBPATH:D:\Graphics\GraphicsPad\GraphicsPad\..\..\Middleware\glew\lib opengl32.lib glew32d.lib QtCored4.lib QtGuid4.lib QtOpenGLd4.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\Graphics\GraphicsPad\Debug\GraphicsPad.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Graphics\GraphicsPad\Debug\GraphicsPad.lib" /MACHINE:X86 Debug\Tmp\Mainer.obj
+         Debug\Tmp\MeGlWindow.obj
+         GraphicsPad.vcxproj -> D:\Graphics\GraphicsPad\Debug\GraphicsPad.exe
+     1>已完成生成项目“D:\Graphics\GraphicsPad\GraphicsPad\GraphicsPad.vcxproj”(Build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:06.75
